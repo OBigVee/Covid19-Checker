@@ -1,63 +1,56 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Response, status
+from CovidE import Covid
 from typing import Optional
 from pydantic import BaseModel
-import question as Q
-import careMssg as M
-import testmssg as T
-import file as F
-
-import question as Q
-import pediatric as P
-import careMssg as M
-import testmssg as T
-
 
 app = FastAPI()
 
-
 @app.get("/")
-async def read_item(questionId: str, preAnswer: str):
-    return {"current_questionId": questionId,
-            "prev_question": " ",
-            "next_questionId": "dummy"
-            } 
-
-# def disclaimer(y):
-#     print(y)
-#     return {"message":"this"}
-   # return (F.data["testMessage"]['disclaimer'])
+def read_item(questionId :Optional[str] = None, preAnswer:Optional[str] = None):
+    return { "message": "Welcome" }
 
 
-@app.get("/intro-mssg")
-def introMessage():
-    return{M.introMessage}
+@app.get("/respond", status_code=200)
+def read_item(questionId :Optional[str] = None, ans:Optional[str]=None, response: Response = None):
+    if questionId == None or ans == None:
+        response.status_code = status.HTTP_400_BAD_REQUEST
+        return { "message": "Question id or Answer is required" }
+
+    C = Covid()
+    response.status_code = status.HTTP_200_OK
+    getResponse = C.handleQuestion(quest=questionId, resp=ans, get_question=False)
+
+    if(getResponse["isError"]): #if there is an error
+        response.status_code = status.HTTP_404_NOT_FOUND
+        return { "message":getResponse["msg"] if getResponse["msg"] else "Not found" }
+
+    return {
+        "message":  getResponse["msg"] if getResponse["msg"] else "Answer sent and saved successfully.",
+        "next_quest_id": getResponse["goTo"],
+        "current_question": getResponse["quest"],
+        "current_answer": getResponse["ans"],
+        "next_question": getResponse["next_question"]
+    }
+
+# @app.post("/", status_code=200)
+# def create_user(response: Response = None):
 
 
-@app.get("/country")
-# Q0
-def askCountry():
-    return Q.Q0
+@app.get("/question", status_code=200)
+def read_item(questionId :Optional[str] = None, response: Response = None):
+    if questionId == None:
+        response.status_code = status.HTTP_400_BAD_REQUEST
+        return { "message": "Question id is required" }
 
+    C = Covid()
+    response.status_code = status.HTTP_200_OK
+    getResponse = C.handleQuestion(quest=questionId, resp=None, get_question=True)
 
-@app.get("/state")
-# Q0A
-def askState():
-    return Q.Q0A
+    if getResponse["isError"]: #if there is an error
+        response.status_code = status.HTTP_404_NOT_FOUND
+        return { "message":getResponse["msg"] if getResponse["msg"] else "Not found" }
 
-
-@app.get("/assessment-permission")
-# Q4
-def assessmentPermission():
-    return(Q.Q4)
-
-
-@app.get("/are-you-vaccinated")
-# Q39
-def ask_Q39():
-    return (Q.Q39)
-
-
-@app.get("/age")
-# age for non vaccinated
-def ask_Q2():
-    return (Q.Q2)
+    return {
+        "message":  getResponse["msg"] if getResponse["msg"] else "Question returned successfully.",
+        "current_question": getResponse["quest"]
+    }
