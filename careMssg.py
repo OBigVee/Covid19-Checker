@@ -1,4 +1,12 @@
 import color 
+
+
+introMessage = """Hi, I’m Julie. \nI’m going to ask you some questions. I will use your answers to give you advice about
+the level of medical care you should seek.\n \nIf answering for someone else, please respond to to all questions as if you are them.\n
+If you are experiencing a life-threatening emergency, please call 911 immediately.\n
+If you are not experiencing a life-threatening emergency, let’s get started.\n\n"""
+
+
 MSG0 = "you have not made a selection.\n Please start again and select options \
     for each question so that i can hel give you advice"
 

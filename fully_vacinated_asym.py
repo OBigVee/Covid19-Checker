@@ -19,7 +19,7 @@ def fullyVaccinated_Asymptomatic(Q45, Q46):
             print(M.MSG305+"\n")
             print(M.MSG303+'\n')
     else:
-        ask_Q50 = "b".lower()
+        # ask_Q50 = "b".lower()
         ask_Q51 = str(input(Q.Q51)).lower()
         if Q45 == "b".lower() and Q46 == "m".lower() and ask_Q51 == "a".lower():
             # Q45 == NO and Q46 == M and ask_Q51 == YES

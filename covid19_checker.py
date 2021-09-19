@@ -42,6 +42,8 @@ endMessage = "Steps to follow Everday:\n \
     •Wash your hands often with soap and water, or use hand sanitizer with at least 60\% alcohol.  "
 
 print(introMessage)
+ENTER = disclaimer
+print(ENTER)
 enterMsg = str(input(disclaimer)).lower()
 if enterMsg == "a":
     # user agree
@@ -109,3 +111,9 @@ print(endMessage)
 # EXPERIENCE MESSAGE
 user_experince_message = user_Ex.UX()
 print(user_experince_message)
+
+
+
+
+
+

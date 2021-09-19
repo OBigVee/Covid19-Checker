@@ -1,13 +1,8 @@
 disclaimer = """
-Do Not Agree To Disclaimer Message:
 Your consent is required to use the Self-Checker.\n
-Do Not Consent:
 Please consent to use the Self-Checker.\n
-Given to every user in their first care message:
-Please also see your local area’s website: [link to state/territory/city health department website
-based on their location selection]
-For Age 13 to 17 and if assessment is done by Myself then MSG22 at the end.\n
-Disclaimer (must agree to continue)
+Please also see your local area’s website: [www.favdoctor.com]\n
+Disclaimer (must agree to continue)\n
 The purpose of the Coronavirus Self-Checker is to help you make decisions about seeking appropriate medical care. This system is not intended for the diagnosis or treatment of disease, including COVID-19.\n
 This project was made possible through a partnership with the CDC Foundation and is enabled by Microsoft’s Azure platform.\n CDC’s collaboration with a non-federal organization does not imply an
 endorsement of any one particular service, product, or enterprise.\n T50.\n [Because some of the symptoms of flu and COVID-19 are similar, you may want to consider\
