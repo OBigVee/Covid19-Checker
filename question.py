@@ -16,21 +16,41 @@ vaccine such as Janssen (Johnson & Johnson) vaccine.)\n\
         a. Yes\n\
         b. No\
          "
-Q2 = """ What is your Age\n\
-        a. Younger than 2 years old\n
-        b. 2 - 4 years\n
-        c. 5 - 9\n
-        d. 10 - 12\n
-        e. 13-17\n
-        f. 18-29\n
-        g. 30-39\n
-        h. 40-49\n
-        i. 50-59\n
-        j. 60-64\n
-        k. 65-69\n
-        l. 70-79\n
-        m. 80+\n
-"""
+# Q2 = """ What is your Age\n\
+#         a. Younger than 2 years old\n
+#         b. 2 - 4 years\n
+#         c. 5 - 9\n
+#         d. 10 - 12\n
+#         e. 13-17\n
+#         f. 18-29\n
+#         g. 30-39\n
+#         h. 40-49\n
+#         i. 50-59\n
+#         j. 60-64\n
+#         k. 65-69\n
+#         l. 70-79\n
+#         m. 80+\n
+# """
+
+Q2 = {
+    "text" : "What is your Age?",
+    "options" : {
+        "a" : "Younger than 2 years old",
+        "b" : "2 - 4 years",
+        "c" : "5 - 9",
+        "d" : "10 - 12",
+        "e" : "13-17",
+        "f" : "18-29",
+        "g" :" 30-39",
+        "h" : "40-49",
+        "i" : "50-59",
+        "j" : "60-64",
+        "k" : "65-69",
+        "l" : "70-79",
+        "m" : "80"
+    }
+}
+
 Q5 = "What sex were you assigned at birth, on your birth original birth ceritificate\n"
 Q35 = "How do you currently describe yourself\n"
 Q36 = "Are you of Hispanic, Latino, or of Spanish origin?\n"
